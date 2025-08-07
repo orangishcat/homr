@@ -10,14 +10,14 @@ documentation = "https://github.com/liebharc/homr"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-numpy = "2.0.2"
-opencv-python-headless = "4.1.2.30"
-Pillow = "8.0.0"
+numpy = "2.2.6"
+opencv-python-headless = "^4.12.0.88"
+Pillow = "^11.3.0"
 types-Pillow = "^10.2.0.20240822"
-scipy = "1.4.1"
-torch = "2.6.0"
+scipy = "1.15.3"
+torch = "2.7.1"
 typing_extensions = "^4.14.1"
-transformers = "^4.53.2"
+transformers = "4.53.2"
 x-transformers = "^2.4.9"
 musicxml = "^1.4"
 easyocr = "^1.7.2"
@@ -28,7 +28,7 @@ pytorch-lightning = "^2.5.2"
 pytest = "^8.3.5"
 mypy = "^1.15.0"
 black = "^25.1.0"
-ruff = "^0.11.11"
+ruff = "0.11.13"
 isort = "^6.0.1"
 pyupgrade = "^3.20.0"
 pre-commit = "^4.2.0"
@@ -36,11 +36,12 @@ pyclean = "^3.1.0"
 coverage = "^7.8.2"
 augly = "^1.0.0"
 editdistance = "^0.8.1"
-torchvision = "0.21.0"
-transformers = {extras = ["torch"], version = "^4.53.2"}
+torchvision = "0.22.1"
+transformers = {extras = ["torch"], version = "4.53.2"}
 cairosvg = "^2.8.2"
 types-requests = "^2.32.4.20250611"
 
+[tool.poetry.group.docs]
 [tool.poetry.group.docs.dependencies]
 sphinx = "7.3.7"
 furo = "2023.9.10"
@@ -51,13 +52,12 @@ myst-nb = "1.1.0"
 enable = false
 vcs = "git"
 style = "semver"
-pattern  = "^v(?P<base>\\d+\\.\\d+\\.\\d+)(-?((?P<stage>[a-zA-Z]+)\\.?(?P<revision>\\d+)?))?"
+pattern = "^v(?P<base>\\d+\\.\\d+\\.\\d+)(-?((?P<stage>[a-zA-Z]+)\\.?(?P<revision>\\d+)?))?"
 
 [build-system]
 requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
 build-backend = "poetry_dynamic_versioning.backend"
 
-## Tools
 [tool.black]
 target-version = ['py311']
 line-length = 100
@@ -66,13 +66,10 @@ preview = true
 [tool.ruff]
 line-length = 100
 target-version = "py311"
+
 [tool.ruff.lint]
-select = [
-    "E", "W", "F", "I", "UP", "C", "B", "S", "A", "INP", "PIE", "PL", "TID252", "T201",
-]
-ignore = [
-    "UP015", "PLC1901", "PLR0913", "S311", "S105", "UP035",
-]
+select = ["E", "W", "F", "I", "UP", "C", "B", "S", "A", "INP", "PIE", "PL", "TID252", "T201"]
+ignore = ["UP015", "PLC1901", "PLR0913", "S311", "S105", "UP035"]
 
 [tool.ruff.lint.flake8-tidy-imports]
 ban-relative-imports = "all"
